@@ -1,0 +1,85 @@
+What is React?
+
+React is a Javascript Library used to produce HTML.
+
+We're writing individual components or views (interchangeable), which are snippets of code which produce HTML. 
+
+React Code is composed of multiple, nested components. 
+
+Component, written in Javascript that produces HTML.
+
+Javascript modules:
+Code in separate files are siloed, or separated, from other code that we wrote, and they require imports. 
+
+When we say silo, that means we can't make reference to variables in that file unless we explicitly say we want access.
+
+Each component is a class declaration, not an instance. 
+
+JSX tag = <>
+Class names put inside tags get translated into instances.
+Whenever we write s, and we put a component name, it's a component class, but gets translated into an instance??
+
+ReactDOM takes a second argument, the target dom element.
+
+"Fat arrow" syntax for functions:
+() => { return x }
+changes the value of "this" inside the function.
+
+RULE: one component per file. 
+
+CONST for constants, let for malleable.
+1. Exporting Modules
+	own components must declare file path.
+2. 
+
+Note: cannot find (...index.js) has meant up til now that there's a syntax error.
+
+
+
+MUST ANSWER: What is Babel?
+
+import React, { Component } is the same as
+var React = require('react'),
+	Component = React.Component;
+
+
+When to use class-based vs. function-based?
+Start with function-based, and if you need additional methods, use class-based. 
+ALso, class-based for state functionality. 
+Functions just for templating, spitting out JSX.
+
+
+
+Event-handling in React:
+	onInputChange/handleInputChange
+	-element -> event
+
+<input onChange={this.onInputChange}> 
+	onChange is a property, special React property.
+
+	OR event better:
+	input onCHange = {event=>console.log(event.target.value)}
+
+	don't even need parenthesis for one argment funcgtions.
+
+State... WHAT IS STATE??
+	State is a plain JS object to record user events. Every class based component has its own state object. Every time the state is changed, the component and all its children will auto-rerender. Must be initialized. 
+
+Looks something like this: 	
+constructor(props) {
+		super(props); // to inherit, because Component, the parent class, already has its own constructor method
+
+		this.state = { term: ''};
+	}
+
+this.state set as regular object only in constructor, everywhere else is setState as a setter.
+NEVER set state props like a regular object.
+
+Whenever you reference a JS variable, wrap it in curlies.
+
+Controlled Field: Value is set by state, rather than the other way around ... the value will change only when the state changes.
+
+Downwards Data Flow: only the most parent level component should be fetching data. 
+
+Passing props : e.g. <VideoList videos = {this.state.videos} />.
+
